@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Mathematical Equations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .equation {
+            width: 800px;
+            margin: 20px auto;
+            padding: 10px;
+            border: 1px solid #ccc;
+            font-size: 24px;
+            text-align: center;
+        }
+
+        .input-container {
+            width: 800px;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .input-box {
+            width: 200px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            font-size: 24px;
+        }
+
+        .button {
+            width: 100px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .result {
+            width: 800px;
+            margin: 20px auto;
+            padding: 10px;
+            border: 1px solid #ccc;
+            font-size: 24px;
+            text-align: center;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Answer These for Keys</h1>
+    <div class="equation" id="equation-1">(14 × 25) + 17 = ?</div>
+    <div class="input-container">
+        <input type="text" id="input-1" class="input-box">
+        <button class="button" onclick="checkAnswer(1)">OK</button>
+    </div>
+
+    <div class="equation" id="equation-2" style="display: none;">(46 - 17) × 3 = ?</div>
+    <div class="input-container" style="display: none;">
+        <input type="text" id="input-2" class="input-box">
+        <button class="button" onclick="checkAnswer(2)">OK</button>
+    </div>
+
+    <div class="equation" id="equation-3" style="display: none;">(73 + 22) - 11 = ?</div>
+    <div class="input-container" style="display: none;">
+        <input type="text" id="input-3" class="input-box">
+        <button class="button" onclick="checkAnswer(3)">OK</button>
+    </div>
+
+    <div class="equation" id="equation-4" style="display: none;">(19 × 36) - 25 = ?</div>
+    <div class="input-container" style="display: none;">
+        <input type="text" id="input-4" class="input-box">
+        <button class="button" onclick="checkAnswer(4)">OK</button>
+    </div>
+
+    <div class="equation" id="equation-5" style="display: none;">(95 - 43) × 2 = ?</div>
+    <div class="input-container" style="display: none;">
+        <input type="text" id="input-5" class="input-box">
+        <button class="button" onclick="checkAnswer(5)">OK</button>
+    </div>
+    <div class="equation" id="equation-6" style="display: none;">(67 + 19) - 22 = ?</div>
+    <div class="input-container" style="display: none;">
+        <input type="text" id="input-6" class="input-box">
+        <button class="button" onclick="checkAnswer(6)">OK</button>
+    </div>
+
+    <div class="equation" id="equation-7" style="display: none;">(23 × 49) + 17 = ?</div>
+    <div class="input-container" style="display: none;">
+        <input type="text" id="input-7" class="input-box">
+        <button class="button" onclick="checkAnswer(7)">OK</button>
+    </div>
+
+    <div class="equation" id="equation-8" style="display: none;">(85 - 32) × 4 = ?</div>
+    <div class="input-container" style="display: none;">
+        <input type="text" id="input-8" class="input-box">
+        <button class="button" onclick="checkAnswer(8)">OK</button>
+    </div>
+
+    <div class="equation" id="equation-9" style="display: none;">(41 + 27) - 19 = ?</div>
+    <div class="input-container" style="display: none;">
+        <input type="text" id="input-9" class="input-box">
+        <button class="button" onclick="checkAnswer(9)">OK</button>
+    </div>
+
+    <div class="equation" id="equation-10" style="display: none;">(56 × 23) - 43 = ?</div>
+    <div class="input-container" style="display: none;">
+        <input type="text" id="input-10" class="input-box">
+        <button class="button" onclick="checkAnswer(10)">OK</button>
+    </div>
+
+    <div class="result" id="result"></div>
+
+    <script>
+        function checkAnswer(questionNumber) {
+            var userAnswer = document.getElementById("input-" + questionNumber).value;
+            var correctAnswer;
+
+            switch (questionNumber) {
+                case 1:
+                    correctAnswer = "392";
+                    break;
+                case 2:
+                    correctAnswer = "87";
+                    break;
+                case 3:
+                    correctAnswer = "84";
+                    break;
+                case 4:
+                    correctAnswer = "659";
+                    break;
+                case 5:
+                    correctAnswer = "104";
+                    break;
+                case 6:
+                    correctAnswer = "64";
+                    break;
+                case 7:
+                    correctAnswer = "1136";
+                    break;
+                case 8:
+                    correctAnswer = "212";
+                    break;
+                case 9:
+                    correctAnswer = "49";
+                    break;
+                case 10:
+                    correctAnswer = "1281";
+                    break;
+            }
+
+            if (userAnswer == correctAnswer) {
+                document.getElementById("equation-" + questionNumber).style.display = "none";
+                document.querySelector(".input-container").style.display = "none";
+
+                if (questionNumber < 10) {
+                    document.getElementById("equation-" + (questionNumber + 1)).style.display = "block";
+                    document.querySelector(".input-container").style.display = "block";
+                } else {
+                    document.getElementById("result").style.display = "block";
+                    document.getElementById("result").innerText = "Yo dawg..You a certified Pythagoras or smtg\n please accept this key : Eda Monee";
+                    setTimeout(function () { location.reload(); }, 2000);
+                }
+            } else {
+                alert("I'm sorry guys....");
+            }
+        }
+    </script>
+</body>
+
+</html>
